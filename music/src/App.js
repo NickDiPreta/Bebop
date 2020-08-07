@@ -1,39 +1,30 @@
 import React , {useState, useEffect} from 'react';
 import './App.css';
-import Song from "./Components/song"
-import Nav from "./Components/nav"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
+import Home from "./Components/home";
+import Playlist from "./Components/playlist";
+import Webplayer from "./Components/webplayer";
+import Favorites from "./Components/favorites";
+import Personal from "./Components/personal";
 
 const App = (props) => {
-  const[songs, setSongs] = useState([])
 
-  useEffect( () => {
-    const makeAPICall = async () => {
-      try {
-      const res = await fetch('http://localhost:3000/songs')  
-      const json = await res.json()
-      setSongs(json)
-      } catch (err) {
-         console.error(err)
-      }
-    }
-    makeAPICall()
-  }, [])
-
-
-
-  const songList = songs.map(e=>{
-    
-    return(
-      <li  key={e.id}><Song info={e}/></li>
-    )
-  })
   return (
     <div className="App">
-      <Nav className="Nav"/>
-      <h1>Looking for music?</h1>
-      <h3>Start listening to the best new releases.</h3>
-      <button className="greenboy">OPEN WEB PLAYER</button>
-      <ul className="songContainer">{songList}</ul>
+      
+      <Switch>
+        
+        <Route path="/webplayer" exact render={(props=> (<Webplayer />))} />
+        <Route path="/playlists/1" exact render={(props=> (<Playlist />))} />
+        <Route path="/songs/favorites" exact render={(props=> (<Favorites />))} />
+        <Route path="/library" exact render={(props=>(<Personal />))} />
+        <Route path="/" exact render={(props)=> (<Home />)} />
+      </Switch>
     </div>
   );
 }

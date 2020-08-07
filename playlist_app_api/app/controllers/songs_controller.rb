@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :update, :destroy]
+  before_action :set_song, only: [:show, :update, :destroy, :song_params]
 
   # GET /songs
   def index
@@ -27,7 +27,7 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1
   def update
     if @song.update(song_params)
-      render json: @song
+      render json: @song.to_json(include: :playlists)
     else
       render json: @song.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class SongsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def song_params
-      params.require(:song).permit(:title, :artist, :duration, :is_favorite, :album, :genre)
+      params.permit(:title, :artist, :duration, :is_favorite, :album, :genre)
     end
 end
