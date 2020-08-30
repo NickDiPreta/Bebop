@@ -1,7 +1,11 @@
 .App {
   text-align: center;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: rgba(19, 19, 19,1);
+}
+.home{
+  height: 100vh;
   background-color: #509bf5;
   background-image: -webkit-gradient(
     linear,
@@ -24,27 +28,14 @@ h3 {
   display: flex;
   flex-direction: row;
   width: 100vw;
-  overflow: scroll;
-  height: 65vh;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  padding-left: 5px;
-  margin-top: 7vh;
-}
-.songItem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  width: 33vw;
-  color: white;
-  margin-right: 10px;
-  background: rgba(0, 0, 0, 0.4);
-  margin-top: -5vh;
   flex-wrap: wrap;
-  border-radius: 3px;
+  height: 52vh;
+  align-items: center;
+  justify-content: center;
+  /* background: rgba(0, 0, 0, 0.5); */
+  padding-left: 5px;
 }
+
 p {
   margin: 2px;
 }
@@ -195,21 +186,21 @@ nav {
   font-weight: 700;
 }
 #heart-symbol {
-  height: 1.2em;
+  height: 1em;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 4px;
   padding-bottom: 1px;
-  
 }
-
 #liked {
   display: flex;
-  justify-content: space-evenly;
-  width: 80%;
+  justify-content: space-between;
+  width: 60%;
   font-size: 14px;
   font-weight: 700;
-  margin-left: -5px;
+  margin-left: 15px;
+  height: 1.5em;
+  padding: 5px;
 }
 #heart-bg {
   background-color: #509bf5;
@@ -220,13 +211,12 @@ nav {
     from(#c074b2),
     to(#8ab5e8)
   );
-  
 }
 .playerContainer {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
-  height: 100vh;
+  /* overflow: scroll; */
+  
   align-items: center;
   padding-left: 5px;
   margin-top: 0;
@@ -288,3 +278,62 @@ h2{
   
 }
 
+.allPlaylists{
+  border-top: 1px solid rgba(255, 255, 255, .2);
+  margin-top: 10px;
+  display:flex;
+  flex-direction: column;
+  text-align: justify;
+  font-size: .8em;
+}
+
+.home-title{
+  font-size: 64px;
+  letter-spacing: -0.04em;
+  font-weight: 900;
+  margin-bottom:0;
+}
+
+.jumbotron{
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.songItem {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  
+  border-radius: 3px;
+  /* margin-bottom: 1.5vh; */
+  /* z-index: -2; */
+}
+.overlay-text{
+  position: absolute;
+}
+
+.promo{
+  color: black;
+  background-color: white;
+}
+
+.promo-header1{
+  color:black;
+  font-size: 32px;
+  font-weight: 900;
+}
+.promo-header3{
+  color: black;
+}
+.h-row{
+  line-height:1.5em;
+  padding:5px;
+}
+.individual-playlist{
+  margin-top:20px;
+  text-align: center;
+}

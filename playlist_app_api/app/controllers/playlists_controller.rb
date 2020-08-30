@@ -42,10 +42,12 @@ class PlaylistsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_playlist
       @playlist = Playlist.find(params[:id])
+    # rescue ActiveRecord::RecordNotFound => e
+    #   @playlist = nil
     end
 
     # Only allow a trusted parameter "white list" through.
     def playlist_params
-      params.require(:playlist).permit(:name)
+      params.permit(:name)
     end
 end

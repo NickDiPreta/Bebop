@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Song from "./song";
 import styled from "styled-components";
-import WebplayerMenu from "./webplayermenu";
+import WebplayerMenu from "./shared/webplayermenu";
 import WebplayerSong from "./webplayersong"
 
 const Playlist = (props) => {

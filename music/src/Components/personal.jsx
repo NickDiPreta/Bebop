@@ -5,8 +5,8 @@ import {
     BrowserRouter as Router,
     Link,
   } from "react-router-dom";
-import Nav from "./nav"
-import WebplayerMenu from "./webplayermenu";
+import Nav from "./shared/nav"
+import WebplayerMenu from "./shared/webplayermenu";
 
 
 const Personal = (props) => {

@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Song = (props) => {
   const [art, setArt] = useState("");
   const [artist, setArtist] = useState("");
+  const [real, setReal] = useState("");
   let album = "Nevermind";
   if (props.info.album) {
     album = props.info.album;
@@ -16,7 +17,8 @@ const Song = (props) => {
       try {
         const response = await axios({ url });
         console.log("album - response", response);
-        setArt(response.data.results.albummatches.album[0].image[2]["#text"]);
+        setReal(response.data.results.albummatches.album[0].name);
+        setArt(response.data.results.albummatches.album[0].image[3]["#text"]);
         setArtist(response.data.results.albummatches.album[0].artist);
         console.log(art);
       } catch (err) {
@@ -27,21 +29,26 @@ const Song = (props) => {
   }, []);
 
   const Hover = styled.div`
+  color: rgba(255, 255, 255, 0);
     :hover {
       cursor: pointer;
-      background-color: rgba(29, 185, 84, 0.2);
-      transition-duration: .3s;
+      background-color: rgba(0, 0, 0, .3);
+      color: rgba(255, 255, 255, 1);
+      transition-duration: 0.3s;
     }
   `;
-
-
+  const Faded = styled.div`
+  :hover{
+    opacity: 0.2;
+  }`;
+  
   return (
-    <Hover className="songItem">
-      <p>{props.info.title}</p>
-      <p>{artist}</p>
-      <p>{props.info.duration}</p>
-      <p>{props.info.genre}</p>
-      <img src={art} alt="album art" />
+    <Hover className="songItem" >
+      <div className="overlay-text">
+        <p>{real}</p>
+        <p>{artist}</p>
+      </div>
+      <Faded><img src={art} alt="album art" height="239.5" width="239.5"/></Faded>
     </Hover>
   );
 };

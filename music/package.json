@@ -9,10 +9,12 @@
     "axios": "^0.19.2",
     "components": "^0.1.0",
     "cors": "^2.8.5",
+    "cors-anywhere": "^0.4.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-transition-group": "^4.4.1",
     "styled": "^1.0.0"
   },
   "scripts": {
