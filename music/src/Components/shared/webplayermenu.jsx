@@ -6,10 +6,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 const WebPlayerMenu = (props) => {
-  
   const [popup, togglePopup] = useState(false);
   const [Name, setName] = useState("");
-  const [display, setDisplay] = useState([])
+  const [display, setDisplay] = useState([]);
 
   const MBtn = styled.div`
     opacity: 0.5;
@@ -30,7 +29,6 @@ const WebPlayerMenu = (props) => {
       color: white;
       transition-duration: 0.3s;
       cursor: pointer;
-      
     }
   `;
   const HeartBtn = styled.div`
@@ -65,24 +63,27 @@ const WebPlayerMenu = (props) => {
   const submitPlaylist = (event) => {
     event.preventDefault();
     handleCreate(event.target.value);
-    
   };
 
   useEffect(() => {
-  const getPlaylists = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/playlists")
-      setDisplay(response.data)
-      console.log("👉 Returned data:", response);
-    } catch (e) {
-      console.log(`😱 Axios request failed: ${e}`);
-    }
-  };
-  getPlaylists();
-},[]);
+    const getPlaylists = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/playlists");
+        setDisplay(response.data);
+        console.log("👉 Returned data:", response);
+      } catch (e) {
+        console.log(`😱 Axios request failed: ${e}`);
+      }
+    };
+    getPlaylists();
+  }, []);
 
-  let fin = display.map(e=> <PLBtn className="individual-playlist"><Link to={`/myplaylists/${e.name}`}>{e.name}</Link></PLBtn> )
-  console.log(fin)
+  let fin = display.map((e) => (
+    <PLBtn className="individual-playlist">
+      <Link to={`/myplaylists/${e.name}`}>{e.name}</Link>
+    </PLBtn>
+  ));
+  console.log(fin);
   return (
     <div className="webplayer-menu">
       <div className="webplayer-menu-top">
@@ -105,17 +106,18 @@ const WebPlayerMenu = (props) => {
               </div>
             </MBtn>
           </Link>
-          <MBtn>
-            <div className="h-row">
-              <img
-                id="search-icon"
-                src="https://i.imgur.com/XYKQ1Xs.png"
-                alt="search icon"
-              />
-              Search
-            </div>
-          </MBtn>
-
+          <Link to="/search">
+            <MBtn>
+              <div className="h-row">
+                <img
+                  id="search-icon"
+                  src="https://i.imgur.com/XYKQ1Xs.png"
+                  alt="search icon"
+                />
+                Search
+              </div>
+            </MBtn>
+          </Link>
           <MBtn>
             <Link to="/songs/favorites">
               <span id="libary">||\ </span>Your Library

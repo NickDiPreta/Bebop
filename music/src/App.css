@@ -337,3 +337,28 @@ h2{
   margin-top:20px;
   text-align: center;
 }
+
+.styled-search{
+  margin-left: 5vw;
+  color: black;
+  font-size: 14px;
+  width: 45%;
+  height:30px;
+  margin-top: 10px;
+  line-height: 1;
+  border-radius: 500px;
+  box-sizing: border-box;
+  letter-spacing: 0.2px;
+  outline-color: white;
+  padding-bottom: 21px;
+  padding-left: 56px;
+  padding-right: 56px;
+  padding-top: 19px; 
+  border: none;
+  font-weight: 500;
+  outline: none;
+  caret-color: black;
+  background-image: url("https://i.imgur.com/nkC7mi0.png?1");
+  background-repeat: no-repeat;
+  background-position: 5% 50%;
+}

@@ -7,11 +7,13 @@ import Webplayer from "./Components/webplayer";
 import Favorites from "./Components/favorites";
 import Personal from "./Components/personal";
 import MyPlaylist from "./Components/shared/myplaylist"
+import Search from "./Components/shared/search"
 
 const App = (props) => {
   return (
     <div className="App">
       <Switch>
+      <Route path="/search" exact render={(props) => <Search {...props} />} />
         <Route path="/myplaylists/:name" exact render={(props) => <MyPlaylist {...props} />} />
         <Route path="/webplayer" exact render={(props) => <Webplayer />} />
         <Route path="/playlists/1" exact render={(props) => <Playlist />} />
