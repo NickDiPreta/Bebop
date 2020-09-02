@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Song from "../song";
 import styled from "styled-components";
 import Popup from "../popup";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { HeartBtn, PLBtn, MBtn } from "./styles";
 
@@ -49,7 +49,7 @@ const WebPlayerMenu = (props) => {
 
   let fin = display.map((e) => (
     <PLBtn className="individual-playlist">
-      <Link to={`/myplaylists/${e.name}`}>{e.name}</Link>
+      <NavLink activeClassName="active"to={`/myplaylists/${e.name}`}>{e.name}</NavLink>
     </PLBtn>
   ));
   console.log(fin);
@@ -63,7 +63,7 @@ const WebPlayerMenu = (props) => {
           </div>
         </Link>
         <div className="webplayer-nav">
-          <Link to="/webplayer">
+          <NavLink to="/webplayer" activeClassName="active">
             <MBtn>
               <div className="h-row">
                 <img
@@ -74,8 +74,8 @@ const WebPlayerMenu = (props) => {
                 Home
               </div>
             </MBtn>
-          </Link>
-          <Link to="/search">
+          </NavLink>
+          <NavLink to="/search" activeClassName="active">
             <MBtn>
               <div className="h-row">
                 <img
@@ -86,7 +86,7 @@ const WebPlayerMenu = (props) => {
                 Search
               </div>
             </MBtn>
-          </Link>
+          </NavLink>
           {/* <MBtn>
             <Link to="/songs/favorites">
               <div className="lib-row"><span id="libary">||\ </span>Library</div>
@@ -116,7 +116,7 @@ const WebPlayerMenu = (props) => {
           ) : (
             ""
           )}
-          <Link to="/songs/favorites">
+          <NavLink activeClassName="active" to="/songs/favorites">
             <HeartBtn>
               <div id="liked">
                 <div id="heart-bg">
@@ -129,7 +129,7 @@ const WebPlayerMenu = (props) => {
                 Liked Songs
               </div>
             </HeartBtn>
-          </Link>
+          </NavLink>
           <div className="allPlaylists">{fin}</div>
         </div>
       </div>

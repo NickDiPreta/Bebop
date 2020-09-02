@@ -29,12 +29,16 @@ const Item = styled(animated.div)`
   :hover {
     color: rgba(45, 70, 185,1)
   }
+  
 `
 const BHover = styled.div`
 :hover {
   cursor: pointer;
   background-color: rgba(29, 185, 84, 0.2);
   transition-duration: 0.3s;
+}
+:active{
+  background-color: rgba(29, 185, 84, 0.2);
 }`
 
 const BrowserHover = styled.div`
@@ -67,7 +71,7 @@ opacity: 0.5;
 `;
 const MBtn = styled.div`
 opacity: 0.5;
-:hover {
+:hover{
   filter: brightness(0) invert(1);
   opacity: 1;
   color: white;
@@ -85,6 +89,7 @@ opacity: 0.5;
   transition-duration: 0.3s;
   cursor: pointer;
 }
+
 `;
 
 export { Container, Item, BHover, BrowserHover, Hover, HeartBtn, PLBtn, MBtn }

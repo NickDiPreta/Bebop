@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Song from "./song";
 import styled from "styled-components";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 import Nav from "./shared/nav";
 import Promo from "./promo";
 import { animated, useSpring } from "react-spring";
 import { useScroll } from "react-use-gesture";
+import Cards from "./shared/genre-cards";
+import HomeTiles from "./shared/home-tiles"
+
+
 
 const clamp = (value: number, clampAt: number = 30) => {
   if (value > 0) {
@@ -20,8 +30,17 @@ const Home = (props) => {
   const [overlay, setOverlay] = useState(false);
 
   const [style, set] = useSpring(() => ({
-    transform: "perspective(500px) rotateY(0deg)",
+    transform: "perspective(1000px) rotateY(0deg)",
   }));
+
+  const lists = [
+    "https://i.imgur.com/cqEKorG.png",
+    "https://i.imgur.com/MP9os3g.png",
+    "https://i.imgur.com/SxMdohA.png",
+    "https://i.imgur.com/UDzlFUH.png",
+  ];
+
+
   const handleTrack = (e) => {
     console.log(e);
   };
@@ -40,7 +59,7 @@ const Home = (props) => {
 
   const songList = songs.slice(1, 25).map((e) => {
     return (
-      <li key={e.id}>
+      <li className="songlist-items" key={e.id}>
         <animated.div key={e.name} className="card" style={{ ...style }}>
           <Song
             track={track}
@@ -92,11 +111,11 @@ const Home = (props) => {
   const rightScroll = () => {
     let container = document.getElementById("song-Container");
     let container2 = document.getElementById("song-Container2");
-    sideScroll(container, "right", 50, 200, 300);
+    sideScroll(container, "right", 50, 200, 50);
   };
   const leftScroll = () => {
     let container = document.getElementById("song-Container");
-    sideScroll(container, "left", 50, 200, 300);
+    sideScroll(container, "left", 50, 200, 50);
   };
 
   const sideScroll = (element, direction, speed, distance, step) => {
@@ -158,7 +177,12 @@ const Home = (props) => {
           />
         </GrnBtn2>
         </div>
-      {/* <Promo /> */}
+        <div className="mobile-homepage-vars">
+          <span id="mobile-favorite-genres">Your Favorite Genres</span>
+      <Cards lists={lists}/>
+      <span className="mobile-header">Browse All</span>
+      <HomeTiles />
+      </div>
     </div>
   );
 };

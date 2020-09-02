@@ -454,6 +454,25 @@ h2 {
   width: 75vw;
   margin-left: 25vw;
 }
+.genre-cards-wrapper {
+  z-index: -1;
+  display: flex;
+  
+  width: 100vw;
+}
+#genre-container{
+  width:fit-content;
+}
+.home-card-genre{
+  flex-shrink: 0;
+  width: 340px;
+  height: 200px;
+  border-radius: 10px;
+  margin-left: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .thin-green {
   background-color: transparent;
   color: white;
@@ -474,15 +493,32 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
 }
+.all-home-tiles {
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-items: flex-start;
+  overflow:scroll;
+}
 
 .small-tile {
-  min-width: fit-content;
-  width: 30%;
+  min-width: 30vw;
+  
   margin: 10px;
   height: 25vh;
   border-radius: 20px;
   text-align: justify;
   text-indent: 10px;
+}
+.small-tile-home {
+  
+  min-width: 30vw;
+  margin: 10px;
+  height: 15vh;
+  border-radius: 20px;
+  text-align: center;
+  
 }
 .tile-text {
   color: white;
@@ -712,4 +748,46 @@ h2 {
   .songItem-player {
     font-size: 8px;
   }
+  
+}
+@media only screen and (max-height: 900px){
+  .double-container{
+    transform: scale(0.9)
+  }
+}
+@media only screen and (max-width: 600px){
+  .double-container{
+    display: none;
+  }
+  #song-Container2{
+    display:none;
+  }
+  #song-Container{
+    display:none;
+  }
+}
+
+.mPopup{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.mobile-homepage-vars{
+  margin-top:20px;
+  color:white;
+  font-size:24px;
+  font-weight: 700;
+}
+#mobile-favorite-genres{
+  margin-top:10px;
+}
+@media only screen and (min-width: 600px){
+  .mobile-homepage-vars{
+    display: none;
+  }
+}
+
+.active{
+  background-color: rgba(8, 194, 73, 0.3);
 }
