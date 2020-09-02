@@ -291,7 +291,7 @@ h2 {
   letter-spacing: -0.04em;
   font-weight: 900;
   margin-bottom: 0;
-  margin-top: 8vh;
+  margin-top: 3vh;
 }
 
 .jumbotron {
@@ -501,7 +501,9 @@ h2 {
   justify-items: flex-start;
   overflow:scroll;
 }
-
+.all-home-tiles::-webkit-scrollbar {
+  display: none;
+}
 .small-tile {
   min-width: 30vw;
   
@@ -588,7 +590,7 @@ h2 {
   background-color: rgba(19, 19, 19, 0.7);
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  height: 55vh;
   margin: auto;
   width: 100vw;
   justify-content: space-between;
@@ -629,7 +631,7 @@ h2 {
   text-align: center;
   border: none;
   font-weight: 700;
-  height: 60vh;
+  height: 55vh;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -645,17 +647,13 @@ h2 {
   text-align: center;
   border: none;
   font-weight: 700;
-  height: 60vh;
+  height: 55vh;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-  .double-container {
-    margin-top: -30px;
-    transform: scale(0.75);
-    width: 100vw;
-  }
+@media only screen and (max-width: 499px) {
+
   .card {
     transform: scale(0.7);
     width: auto;
@@ -668,15 +666,18 @@ h2 {
     height: 30px;
   }
   h3 {
-    font-size: 10px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: left;
   }
   .nav-left {
     align-items: center;
+    padding-left: 0px;
   }
   .webplayer-playlists {
     font-size: 12px;
   }
+  
   #playlists-head {
     font-size: 12px;
   }
@@ -750,12 +751,8 @@ h2 {
   }
   
 }
-@media only screen and (max-height: 900px){
-  .double-container{
-    transform: scale(0.9)
-  }
-}
-@media only screen and (max-width: 600px){
+
+@media only screen and (max-width: 499px){
   .double-container{
     display: none;
   }
@@ -782,12 +779,46 @@ h2 {
 #mobile-favorite-genres{
   margin-top:10px;
 }
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 500px){
   .mobile-homepage-vars{
     display: none;
   }
 }
 
+@media only screen and (max-height: 812px){
+  .all-home-tiles{
+    display: none;
+  }
+  .mobile-header{
+    display:none;
+  }
+  .jumbotron{
+    font-size:20px;
+    line-height:1em;
+    text-align: center;
+  }
+  .mobile-homepage-vars{
+    margin-top:5vh;
+  }
+  .double-container{
+    transform: scale(0.9)
+  }
+}
+
 .active{
   background-color: rgba(8, 194, 73, 0.3);
+}
+
+@media only screen and (min-width: 319px){
+  .tile-text{
+    font-size:16px;
+  }
+  .jumbotron{
+    margin-top:0px;
+    line-height:1.2em;
+    text-align: center;
+  }
+  .all-home-tiles{
+    padding-left:0px;
+  }
 }

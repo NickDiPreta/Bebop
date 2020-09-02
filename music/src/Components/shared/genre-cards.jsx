@@ -3,6 +3,13 @@ import { animated, useSpring } from "react-spring";
 import { useScroll } from "react-use-gesture";
 import styled from "styled-components";
 import "../../App.css";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    NavLink,
+  } from "react-router-dom";
 
 const clamp = (value: number, clampAt: number = 30) => {
   if (value > 0) {
@@ -67,14 +74,16 @@ const Cards = (props) => {
         </GrnBtn>
         <div id="genre-container" className="container" {...bind()}>
           {props.lists.map((src) => (
+              <Link to={src.link}>
             <animated.div
               key={src}
               className="home-card-genre"
               style={{
                 ...style,
-                backgroundImage: `url(${src})`,
+                backgroundImage: `url(${src.url})`,
               }}
             />
+            </Link>
           ))}
         </div>
 

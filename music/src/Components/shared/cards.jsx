@@ -3,6 +3,13 @@ import { animated, useSpring } from "react-spring";
 import { useScroll } from "react-use-gesture";
 import styled from "styled-components";
 import "../../App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 
 const clamp = (value: number, clampAt: number = 30) => {
   if (value > 0) {
@@ -13,10 +20,10 @@ const clamp = (value: number, clampAt: number = 30) => {
 };
 
 const movies = [
-  "https://i.imgur.com/cqEKorG.png",
-  "https://i.imgur.com/MP9os3g.png",
-  "https://i.imgur.com/SxMdohA.png",
-  "https://i.imgur.com/UDzlFUH.png",
+  { url: "https://i.imgur.com/cqEKorG.png", link: "/browse/hiphop" },
+  { url: "https://i.imgur.com/MP9os3g.png", link: "/browse/electronic" },
+  { url: "https://i.imgur.com/SxMdohA.png", link: "/browse/rock" },
+  { url: "https://i.imgur.com/UDzlFUH.png", link: "/browse/pop" },
 ];
 
 const Cards = () => {
@@ -72,14 +79,16 @@ const Cards = () => {
         </GrnBtn>
         <div id="container" className="container" {...bind()}>
           {movies.map((src) => (
+            <Link to={src.link}>
             <animated.div
               key={src}
               className="card-genre"
               style={{
                 ...style,
-                backgroundImage: `url(${src})`,
+                backgroundImage: `url(${src.url})`,
               }}
             />
+            </Link>
           ))}
         </div>
 

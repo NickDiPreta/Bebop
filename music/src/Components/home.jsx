@@ -34,10 +34,10 @@ const Home = (props) => {
   }));
 
   const lists = [
-    "https://i.imgur.com/cqEKorG.png",
-    "https://i.imgur.com/MP9os3g.png",
-    "https://i.imgur.com/SxMdohA.png",
-    "https://i.imgur.com/UDzlFUH.png",
+    { url: "https://i.imgur.com/cqEKorG.png", link: "/browse/hiphop" },
+    { url: "https://i.imgur.com/MP9os3g.png", link: "/browse/electronic" },
+    { url: "https://i.imgur.com/SxMdohA.png", link: "/browse/rock" },
+    { url: "https://i.imgur.com/UDzlFUH.png", link: "/browse/pop" },
   ];
 
 
