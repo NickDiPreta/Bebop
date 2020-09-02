@@ -5,16 +5,10 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import Nav from "./shared/nav";
 import WebplayerMenu from "./shared/webplayermenu";
 import Playlist from "./playlist";
+import { Hover } from "./shared/styles";
 
 const Webplayer = (props) => {
   const [songs, setSongs] = useState([]);
-  const Hover = styled.div`
-    :hover {
-      cursor: pointer;
-      background-color: rgba(29, 185, 84, 0.2);
-      transition-duration: 0.3s;
-    }
-  `;
 
   
   let def = (
@@ -41,7 +35,7 @@ const Webplayer = (props) => {
   useEffect(() => {
     const makeAPICall = async () => {
       try {
-        const res = await fetch("http://localhost:3000/songs");
+        const res = await fetch("https://serene-tundra-56959.herokuapp.com/songs");
         const json = await res.json();
         setSongs(json);
       } catch (err) {
@@ -62,8 +56,8 @@ const Webplayer = (props) => {
   let base = [];
   base.push(def);
   
-  base.push(songList);
-
+  base.push(songList.reverse());
+  
   return (
     <>
       <WebplayerMenu />

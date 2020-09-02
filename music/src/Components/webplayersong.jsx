@@ -43,12 +43,13 @@ const WebplayerSong = (props) => {
     handleUpdate();
     let faveSong = {
       method: "put",
-      url: `http://localhost:3000/songs/${id}`,
+      url: `https://serene-tundra-56959.herokuapp.com/songs/${id}`,
       data: {
         is_favorite: true,
       },
       transformResponse: [
         (data) => {
+          console.log(data)
           // transform the response
           return data;
         },

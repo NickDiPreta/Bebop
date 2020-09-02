@@ -15,3 +15,20 @@
         is_favorite: false
     )
 end
+
+Playlist.create(
+    name: "Slow Jamz"
+)
+Playlist.create(
+    name: "High School Classics"
+)
+Playlist.create(
+    name: "Sad Songs"
+)
+
+45.times do
+Roster.create(
+    playlist_id: Faker::Number.between(from: 1, to: 3),
+    song_id: Faker::Number.between(from: 1, to: 100)
+)
+end

@@ -11,7 +11,7 @@ const Playlist = (props) => {
     useEffect(() => {
         const makeAPICall = async () => {
           try {
-            const res = await fetch("http://localhost:3000/playlists");
+            const res = await fetch("https://serene-tundra-56959.herokuapp.com/playlists");
             const json = await res.json();
             
             setPlaylist(json[0].songs);

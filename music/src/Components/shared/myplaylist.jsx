@@ -8,7 +8,7 @@ const MyPlaylist = (props) => {
 
   useEffect(() => {
     const getPlaylistContents = async () => {
-      await axios.get("http://localhost:3000/playlists").then((response) => {
+      await axios.get("https://serene-tundra-56959.herokuapp.com/playlists").then((response) => {
         const filtered = response.data.filter(e=>e.name==props.match.params.name)
         console.log(filtered)
         setDisplay(filtered[0].songs)

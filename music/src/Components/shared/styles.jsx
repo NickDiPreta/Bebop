@@ -30,5 +30,61 @@ const Item = styled(animated.div)`
     color: rgba(45, 70, 185,1)
   }
 `
+const BHover = styled.div`
+:hover {
+  cursor: pointer;
+  background-color: rgba(29, 185, 84, 0.2);
+  transition-duration: 0.3s;
+}`
 
-export { Container, Item }
+const BrowserHover = styled.div`
+color: white;
+:hover {
+  cursor: pointer;
+  background-color: rgba(29, 185, 84, 0.2);
+  transition-duration: 0.3s;
+}
+`
+const Hover = styled.div`
+:hover {
+  cursor: pointer;
+  background-color: rgba(29, 185, 84, 0.2);
+  transition-duration: 0.3s;
+}
+`;
+const HeartBtn = styled.div`
+opacity: 0.5;
+
+:hover {
+  color: black;
+  filter: invert(1);
+  opacity: 1;
+
+  transition-duration: 0.3s;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+`;
+const MBtn = styled.div`
+opacity: 0.5;
+:hover {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  color: white;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+`;
+const PLBtn = styled.div`
+opacity: 0.5;
+:hover {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  color: white;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+`;
+
+export { Container, Item, BHover, BrowserHover, Hover, HeartBtn, PLBtn, MBtn }

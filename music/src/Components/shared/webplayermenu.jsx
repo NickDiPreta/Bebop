@@ -4,50 +4,19 @@ import styled from "styled-components";
 import Popup from "../popup";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
+import { HeartBtn, PLBtn, MBtn } from "./styles";
 
 const WebPlayerMenu = (props) => {
   const [popup, togglePopup] = useState(false);
   const [Name, setName] = useState("");
   const [display, setDisplay] = useState([]);
 
-  const MBtn = styled.div`
-    opacity: 0.5;
-    :hover {
-      filter: brightness(0) invert(1);
-      opacity: 1;
-      color: white;
-      transition-duration: 0.3s;
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-  `;
-  const PLBtn = styled.div`
-    opacity: 0.5;
-    :hover {
-      filter: brightness(0) invert(1);
-      opacity: 1;
-      color: white;
-      transition-duration: 0.3s;
-      cursor: pointer;
-    }
-  `;
-  const HeartBtn = styled.div`
-    opacity: 0.5;
 
-    :hover {
-      color: black;
-      filter: invert(1);
-      opacity: 1;
 
-      transition-duration: 0.3s;
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-  `;
 
   const handleCreate = async (input) => {
     try {
-      const response = await axios.post("http://localhost:3000/playlists", {
+      const response = await axios.post("https://serene-tundra-56959.herokuapp.com/playlists", {
         name: Name,
       });
       console.log("👉 Returned data:", response);
@@ -68,7 +37,7 @@ const WebPlayerMenu = (props) => {
   useEffect(() => {
     const getPlaylists = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/playlists");
+        const response = await axios.get("https://serene-tundra-56959.herokuapp.com/playlists");
         setDisplay(response.data);
         console.log("👉 Returned data:", response);
       } catch (e) {

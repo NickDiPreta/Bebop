@@ -15,7 +15,7 @@ const Personal = (props) => {
   useEffect(() => {
     const makeAPICall = async () => {
       try {
-        const res = await fetch("http://localhost:3000/songs");
+        const res = await fetch("https://serene-tundra-56959.herokuapp.com/songs");
         const json = await res.json();
         setSongs(json);
       } catch (err) {
