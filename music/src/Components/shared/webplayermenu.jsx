@@ -118,11 +118,11 @@ const WebPlayerMenu = (props) => {
               </div>
             </MBtn>
           </Link>
-          <MBtn>
+          {/* <MBtn>
             <Link to="/songs/favorites">
-              <span id="libary">||\ </span>Your Library
+              <div className="lib-row"><span id="libary">||\ </span>Library</div>
             </Link>
-          </MBtn>
+          </MBtn> */}
         </div>
         <div className="webplayer-playlists">
           <div id="playlists-head">PLAYLISTS</div>
