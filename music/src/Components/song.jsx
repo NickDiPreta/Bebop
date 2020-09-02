@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import MusicPlayer from "./shared/musicplayer";
 
 const Song = (props) => {
   const [art, setArt] = useState("");
   const [artist, setArtist] = useState("");
   const [real, setReal] = useState("");
+  const [track, setTrack] = useState("");
+
   let album = "Nevermind";
   if (props.info.album) {
     album = props.info.album;
@@ -29,26 +32,52 @@ const Song = (props) => {
   }, []);
 
   const Hover = styled.div`
-  color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0);
     :hover {
       cursor: pointer;
-      background-color: rgba(0, 0, 0, .3);
+      background-color: rgba(0, 0, 0, 0.3);
       color: rgba(255, 255, 255, 1);
       transition-duration: 0.3s;
     }
   `;
   const Faded = styled.div`
-  :hover{
-    opacity: 0.2;
-  }`;
+    :hover {
+      opacity: 0.2;
+    }
+  `;
   
+  useEffect(() => {
+    const makeAPICall = async () => {
+      await axios
+        .get(
+          `http://api.napster.com/v2.2/search/verbose?apikey=YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4&query=${artist}+${real}`
+        )
+        .then((response) => {
+          console.log("songs response album", response)
+          
+          setTrack(response.data.search.data.tracks[0].previewURL);
+        })
+        .catch((e) => console.log(e));
+    };
+    makeAPICall();
+  }, [real]);
+
+  let audio = new Audio(track);
+
+  const start = () => {
+    audio.play();
+  };
+
   return (
-    <Hover className="songItem" >
+    <Hover onClick={start} className="songItem">
       <div className="overlay-text">
         <p>{real}</p>
         <p>{artist}</p>
       </div>
-      <Faded><img src={art} alt="album art" height="239.5" width="239.5"/></Faded>
+
+      <Faded>
+        <img src={art} alt="album art" height="239.5" width="239.5" />
+      </Faded>
     </Hover>
   );
 };

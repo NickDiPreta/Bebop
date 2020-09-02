@@ -822,3 +822,15 @@ h2 {
     padding-left:0px;
   }
 }
+.player{
+  z-index: 1000;
+}
+.playButton{
+  background:transparent;
+  border:none;
+  cursor: pointer;
+  outline:none;
+}
+.playButton :focus{
+  
+}

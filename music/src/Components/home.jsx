@@ -13,7 +13,8 @@ import Promo from "./promo";
 import { animated, useSpring } from "react-spring";
 import { useScroll } from "react-use-gesture";
 import Cards from "./shared/genre-cards";
-import HomeTiles from "./shared/home-tiles"
+import HomeTiles from "./shared/home-tiles";
+import MusicPlayer from "./shared/musicplayer"
 
 
 
@@ -183,6 +184,7 @@ const Home = (props) => {
       <span className="mobile-header">Browse All</span>
       <HomeTiles />
       </div>
+      
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { BHover } from "./styles";
+import MusicPlayer from "./musicplayer"
 
 const BrowserSong = (props) => {
   const [update, setUpdate] = useState({ is_favorite: false });
@@ -66,11 +67,8 @@ const BrowserSong = (props) => {
 
   return (
     <BHover className="songItem-player">
-      <img
-        className="play-btn"
-        src="https://i.imgur.com/ICYXOaG.png"
-        alt="play"
-      />
+  
+      <MusicPlayer song={props.songTitle}/>
       <div className="player-left">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {props.songTitle}

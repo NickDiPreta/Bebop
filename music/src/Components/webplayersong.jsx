@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import MusicPlayer from "./shared/musicplayer";
 
 const WebplayerSong = (props) => {
   const [art, setArt] = useState("");
@@ -78,11 +79,8 @@ const WebplayerSong = (props) => {
 
   return (
     <Hover className="songItem-player">
-      <img
-        className="play-btn"
-        src="https://i.imgur.com/ICYXOaG.png"
-        alt="play"
-      />
+      
+      <MusicPlayer song={props.info.title}/>
       <div className="player-left">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {props.info.title}
