@@ -1,4 +1,5 @@
-## Bebop is a Spotify Web Player Clone. Anticipated deploy date: 9/4/2020.
+## Bebop is a Spotify Web Player Clone.
+[Link To Bebop](http://whole-gate.surge.sh/)
 
 ![Bebop Homepage](https://i.imgur.com/3T1Nt51.png)
 
